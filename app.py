@@ -8,6 +8,37 @@ st.markdown(
         body {{
             background-color: #c7522a;
         }}
+        .button {{
+            background-color: #008585;
+            color: #e5c185;
+            width: 100%;
+            height: 50px;
+            border-radius: 10px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+        }}
+        .button:hover {{
+            background-color: #006666;
+        }}
+        .disabled {{
+            background-color: #008585;
+            color: #e5c185;
+            width: 100%;
+            height: 50px;
+            border-radius: 10px;
+            font-size: 16px;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0.5;
+            cursor: not-allowed;
+        }}
     </style>
     """,
     unsafe_allow_html=True
@@ -37,14 +68,10 @@ projects = [
 col1, col2, col3 = st.columns(3)
 
 for i, (project_name, project_link) in enumerate(projects):
-    button_style = f"background-color: #008585; color: #e5c185; width: 100%; height: 50px; border-radius: 10px; font-size: 16px;"
-
     if project_link:
-        if col1.button(project_name, key=i, help=f"Go to {project_name}"):
-            st.write(f"Redirecting to {project_name}...")
-            st.markdown(f"[Click here to visit]({project_link})")
+        col1.markdown(f"<a href='{project_link}' target='_blank' class='button'>{project_name}</a>", unsafe_allow_html=True)
     else:
-        col1.markdown(f"<button style='{button_style}' disabled>{project_name}</button>", unsafe_allow_html=True)
+        col1.markdown(f"<div class='disabled'>{project_name}</div>", unsafe_allow_html=True)
 
     if i % 5 == 0:
         col1, col2, col3 = st.columns(3)
