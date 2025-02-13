@@ -8,11 +8,18 @@ st.markdown(
         body {{
             background-color: #c7522a;
         }}
+        .button-container {{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }}
         .custom-button {{
             display: block;
             background-color: #008585;
             color: #e5c185;
-            width: 100%;
+            width: 90%;
             height: 50px;
             border-radius: 10px;
             font-size: 16px;
@@ -22,6 +29,7 @@ st.markdown(
             font-weight: bold;
             border: none;
             cursor: pointer;
+            margin-bottom: 10px; /* فاصله بین دکمه‌ها */
         }}
         .custom-button:hover {{
             background-color: #006666;
@@ -29,7 +37,7 @@ st.markdown(
         .disabled-button {{
             background-color: #008585;
             color: #e5c185;
-            width: 100%;
+            width: 90%;
             height: 50px;
             border-radius: 10px;
             font-size: 16px;
@@ -39,6 +47,7 @@ st.markdown(
             border: none;
             cursor: not-allowed;
             opacity: 0.6;
+            margin-bottom: 10px; /* فاصله بین دکمه‌ها */
         }}
     </style>
     """,
@@ -72,11 +81,12 @@ for i, (project_name, project_link) in enumerate(projects):
     col = cols[i % 3]  # انتخاب ستون مناسب
 
     if project_link:
-        # دکمه‌ی فعال که استایل مشابه دکمه‌ی غیرفعال دارد.
         col.markdown(
-            f"<a href='{project_link}' class='custom-button' target='_blank'>{project_name}</a>",
+            f"<div class='button-container'><a href='{project_link}' class='custom-button' target='_blank'>{project_name}</a></div>",
             unsafe_allow_html=True
         )
     else:
-        # دکمه‌ی غیرفعال با استایل مشابه دکمه‌ی فعال
-        col.markdown(f"<div class='disabled-button'>{project_name}</div>", unsafe_allow_html=True)
+        col.markdown(
+            f"<div class='button-container'><div class='disabled-button'>{project_name}</div></div>",
+            unsafe_allow_html=True
+        )
