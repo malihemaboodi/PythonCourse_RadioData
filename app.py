@@ -2,11 +2,19 @@ import streamlit as st
 
 st.set_page_config(page_title="15 Project Icons", page_icon="🎨")
 
-container = st.container()
-container.markdown(
-    "**Welcome to the 15 Project Icons Page**",
-    unsafe_allow_html=False
+st.markdown(
+    f"""
+    <style>
+        body {{
+            background-color: #c7522a;
+        }}
+    </style>
+    """,
+    unsafe_allow_html=True
 )
+
+st.markdown("<h1 style='color: #f37324; text-align: center;'>Welcome to the 15 Project Icons Page</h1>",
+            unsafe_allow_html=True)
 
 projects = [
     ("First Project", "https://pythoncourseradiodata-awpmjesxcvc84rlwx6kk5m.streamlit.app/"),
@@ -26,15 +34,16 @@ projects = [
     ("Fifteenth Project", "")
 ]
 
-col1, col2, col3 = st.columns(3)
+cols = st.columns(3)  # اصلاح: همه دکمه‌ها در یک ستون قرار نمی‌گیرند.
+
+button_style = "background-color: #008585; color: #e5c185; width: 100%; height: 50px; border-radius: 10px; font-size: 16px;"
 
 for i, (project_name, project_link) in enumerate(projects):
+    col = cols[i % 3]  # دکمه‌ها به‌درستی بین سه ستون پخش می‌شوند.
+
     if project_link:
-        if col1.button(project_name, key=i, help=f"Go to {project_name}"):
+        if col.button(project_name, key=i, help=f"Go to {project_name}"):
             st.write(f"Redirecting to {project_name}...")
             st.markdown(f"[Click here to visit]({project_link})")
     else:
-        col1.button(project_name, key=i, help=f"{project_name} has no link")
-
-    if i % 5 == 0:
-        col1, col2, col3 = st.columns(3)
+        col.markdown(f"<button style='{button_style}' disabled>{project_name}</button>", unsafe_allow_html=True)
