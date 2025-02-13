@@ -4,6 +4,27 @@ import streamlit as st
 st.set_page_config(page_title="15 Project Icons", page_icon="🎨")
 
 
+st.markdown(
+    """
+    <style>
+    .main {
+        background-color: #c7522a;
+    }
+    .stButton>button {
+        background-color: #008585;
+        color: #e5c185;
+        font-size: 16px;
+        padding: 10px;
+        border-radius: 10px;
+    }
+    .stTitle {
+        color: #b8cdab;
+    }
+    </style>
+    """, unsafe_allow_html=True
+)
+
+
 st.title("Welcome to the 15 Project Icons Page")
 
 
@@ -30,7 +51,7 @@ col1, col2, col3 = st.columns(3)
 
 
 for i, (project_name, project_link) in enumerate(projects):
-    icon_color = f"hsl({i * 24}, 100%, 50%)"
+    icon_color = f"hsl({i * 24}, 100%, 50%)"  # رنگ‌های مختلف برای هر آیکون
 
 
     if project_link:
