@@ -10,7 +10,8 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # Add an image
-st.image("assets/sport_logo.jpg", use_container_width=True)
+st.image("../assets/sport_logo.jpg", use_container_width=True)
+
 
 
 
