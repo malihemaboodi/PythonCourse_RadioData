@@ -2,7 +2,11 @@ import streamlit as st
 
 st.set_page_config(page_title="15 Project Icons", page_icon="🎨")
 
-st.markdown("**Welcome to the 15 Project Icons Page**")
+container = st.container()
+container.markdown(
+    "**Welcome to the 15 Project Icons Page**",
+    unsafe_allow_html=False
+)
 
 projects = [
     ("First Project", "https://pythoncourseradiodata-awpmjesxcvc84rlwx6kk5m.streamlit.app/"),
@@ -22,13 +26,15 @@ projects = [
     ("Fifteenth Project", "")
 ]
 
-cols = st.columns(3)
+col1, col2, col3 = st.columns(3)
 
 for i, (project_name, project_link) in enumerate(projects):
-    col = cols[i % 3]  # دکمه‌ها را به تناوب در ستون‌های مختلف قرار می‌دهد
     if project_link:
-        if col.button(project_name, key=i, help=f"Go to {project_name}"):
+        if col1.button(project_name, key=i, help=f"Go to {project_name}"):
             st.write(f"Redirecting to {project_name}...")
             st.markdown(f"[Click here to visit]({project_link})")
     else:
-        col.button(project_name, key=i, help=f"{project_name} has no link")
+        col1.button(project_name, key=i, help=f"{project_name} has no link")
+
+    if i % 5 == 0:
+        col1, col2, col3 = st.columns(3)
