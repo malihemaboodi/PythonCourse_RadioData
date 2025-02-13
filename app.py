@@ -44,7 +44,7 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-st.markdown("<h1 style='color: #b8cdab; text-align: center;'>Welcome to the 15 Project Icons Page</h1>",
+st.markdown("<h1 style='color: #f37324; text-align: center;'>Welcome to the 15 Project Icons Page</h1>",
             unsafe_allow_html=True)
 
 projects = [
