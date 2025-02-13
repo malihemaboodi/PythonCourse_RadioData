@@ -1,6 +1,6 @@
 import streamlit as st
 
-st.set_page_config(page_title="15 Project Icons", page_icon="🎨")
+st.set_page_config(page_title="Python Course at Radio.Data", page_icon="🎨")
 
 st.markdown(
     f"""
@@ -29,7 +29,7 @@ st.markdown(
             font-weight: bold;
             border: none;
             cursor: pointer;
-            margin-bottom: 10px; /* فاصله بین دکمه‌ها */
+            margin-bottom: 10px; 
         }}
         .custom-button:hover {{
             background-color: #006666;
@@ -47,14 +47,14 @@ st.markdown(
             border: none;
             cursor: not-allowed;
             opacity: 0.6;
-            margin-bottom: 10px; /* فاصله بین دکمه‌ها */
+            margin-bottom: 10px; 
         }}
     </style>
     """,
     unsafe_allow_html=True
 )
 
-st.markdown("<h1 style='color: #b8cdab; text-align: center;'>Welcome to the 15 Project Icons Page</h1>",
+st.markdown("<h1 style='color: #f37324; text-align: center;'>Welcome to the Python Course at Radio.Data</h1>",
             unsafe_allow_html=True)
 
 projects = [
@@ -75,10 +75,10 @@ projects = [
     ("Fifteenth Project", "")
 ]
 
-cols = st.columns(3)  # دکمه‌ها در سه ستون قرار می‌گیرند.
+cols = st.columns(3)
 
 for i, (project_name, project_link) in enumerate(projects):
-    col = cols[i % 3]  # انتخاب ستون مناسب
+    col = cols[i % 3]
 
     if project_link:
         col.markdown(
