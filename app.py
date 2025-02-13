@@ -5,7 +5,7 @@ st.set_page_config(page_title="15 Project Icons", page_icon="🎨")
 st.markdown(
     """
     <style>
-    .main {
+    .css-1d391kg {
         background-color: #c7522a;
     }
     .stButton>button {
@@ -16,7 +16,7 @@ st.markdown(
         border-radius: 10px;
     }
     .stTitle {
-        color: #b8cdab;
+        color: #b8cdab !important;
     }
     </style>
     """, unsafe_allow_html=True
