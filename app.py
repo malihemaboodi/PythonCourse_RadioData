@@ -1,8 +1,6 @@
 import streamlit as st
 
-
 st.set_page_config(page_title="15 Project Icons", page_icon="🎨")
-
 
 st.markdown(
     """
@@ -24,9 +22,7 @@ st.markdown(
     """, unsafe_allow_html=True
 )
 
-
 st.title("Welcome to the 15 Project Icons Page")
-
 
 projects = [
     ("First Project", "https://pythoncourseradiodata-awpmjesxcvc84rlwx6kk5m.streamlit.app/"),
@@ -46,23 +42,16 @@ projects = [
     ("Fifteenth Project", "")
 ]
 
-
 col1, col2, col3 = st.columns(3)
 
-
 for i, (project_name, project_link) in enumerate(projects):
-    icon_color = f"hsl({i * 24}, 100%, 50%)"  # رنگ‌های مختلف برای هر آیکون
-
-
     if project_link:
         button = col1.button(project_name, key=i, help=f"Go to {project_name}")
         if button:
             st.write(f"Redirecting to {project_name}...")
             st.markdown(f"[Click here to visit]({project_link})")
     else:
-
         col1.button(project_name, key=i, help=f"{project_name} has no link")
-
 
     if i % 5 == 0:
         col1, col2, col3 = st.columns(3)
