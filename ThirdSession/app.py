@@ -1,5 +1,6 @@
 import streamlit as st
-
+# Set the page title and icon
+st.set_page_config(page_title="Driving Test", page_icon="🚗")
 # Title and description
 st.title("🚗 Driving Test: Will You Get Your License? 🚦")
 st.markdown("""
