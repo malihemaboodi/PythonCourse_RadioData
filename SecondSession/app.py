@@ -1,5 +1,7 @@
 import streamlit as st
 
+# Set the page title and icon
+st.set_page_config(page_title="Personal Budget Management Program", page_icon="💰")
 # Title and introduction
 st.title("💰 Personal Budget Management Program")
 st.write("Welcome to the **Personal Budget Management Program**! Let's manage your budget and plan your savings effectively. 🏦")
