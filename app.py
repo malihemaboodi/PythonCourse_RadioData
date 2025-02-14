@@ -59,8 +59,8 @@ st.markdown("<h1 style='color: #f37324; text-align: center;'>Welcome to the Pyth
 
 projects = [
     ("First Project", "https://pythoncourseradiodata-awpmjesxcvc84rlwx6kk5m.streamlit.app/"),
-    ("Second Project", ""),
-    ("Third Project", ""),
+    ("Second Project", "https://pythoncourseradiodatabudgetmanagementprogram.streamlit.app/"),
+    ("Third Project", "https://pythoncourseradiodatathirdsession.streamlit.app/"),
     ("Fourth Project", ""),
     ("Fifth Project", ""),
     ("Sixth Project", ""),
