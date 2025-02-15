@@ -50,6 +50,3 @@ for element in user_name:
 
 
 print(f"Your generated username is:  {final_username}")
-
-
-
