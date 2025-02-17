@@ -25,7 +25,7 @@ if "chosen_word" not in st.session_state:
 # UI Design
 st.title("🐠 Save The Poor Fish! 🏝️")
 st.markdown("## 🎮 Guess the Word and Rescue the Fish!")
-st.image("https://media.giphy.com/media/3o7aD2saalBwwftBIY/giphy.gif", use_column_width=True)
+st.image("https://media.giphy.com/media/3o7aD2saalBwwftBIY/giphy.gif", use_container_width=True)
 
 st.markdown(f"### 🌊 Word Status: `{st.session_state.display_word}`")
 st.markdown(f"### ❤️ Lives Left: `{st.session_state.num_lives}/5`")
@@ -35,7 +35,7 @@ if st.session_state.game_over:
         st.success(f"🎉 YOU WON! The word was `{st.session_state.chosen_word}`! The fish is SAFE! 🐟🥳")
     else:
         st.error(f"💀 GAME OVER! The word was `{st.session_state.chosen_word}`. The fish is... gone 😭")
-        st.image("https://media.giphy.com/media/26AHONQ79FdWZhAI0/giphy.gif", use_column_width=True)
+        st.image("https://media.giphy.com/media/26AHONQ79FdWZhAI0/giphy.gif", use_container_width=True)
 else:
     user_guess = st.text_input("🎯 Enter a letter:", max_chars=1).lower()
     if st.button("Guess!") and user_guess:
