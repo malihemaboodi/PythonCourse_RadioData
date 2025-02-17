@@ -25,7 +25,7 @@ if "chosen_word" not in st.session_state:
 # UI Design
 st.title("🐠 Save The Poor Fish! 🏝️")
 st.markdown("## 🎮 Guess the Word and Rescue the Fish!")
-st.image("https://media.giphy.com/media/3o7aD2saalBwwftBIY/giphy.gif", use_container_width=True)
+# st.image("https://media.giphy.com/media/3o7aD2saalBwwftBIY/giphy.gif", use_container_width=True)
 
 st.markdown(f"### 🌊 Word Status: `{st.session_state.display_word}`")
 st.markdown(f"### ❤️ Lives Left: `{st.session_state.num_lives}/5`")
