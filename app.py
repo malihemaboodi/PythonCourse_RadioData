@@ -101,7 +101,7 @@ projects = [
     ("Sixth Project", ""),
     ("Seventh Project", "https://pythoncourseradiodata-d7gy86s7bcga9whlc3q8yw.streamlit.app/"),
     ("Eighth Project", "https://pythoncourseradiodata-kfr3xsxfwvewsbngzxfoxm.streamlit.app/"),
-    ("Ninth Project", ""),
+    ("Ninth Project", "https://pythoncourseradiodata-kyoqzq4doqeg6b3ddrueyk.streamlit.app/"),
     ("Tenth Project", ""),
     ("Eleventh Project", ""),
     ("Twelfth Project", ""),
