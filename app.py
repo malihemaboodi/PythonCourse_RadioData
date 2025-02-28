@@ -107,10 +107,10 @@ projects = [
     ("Twelfth Project", ""),
     ("Thirteenth Project", ""),
     ("Fourteenth Project", ""),
-    ("Fifteenth Project", "")
+    ("Fifteenth Project", "https://datasysaiassistant-ey5junxq4tse7pndxrosiw.streamlit.app/")
 ]
 
-# Container for the project buttons
+# Container for the project button
 st.markdown("<div class='projects-container'>", unsafe_allow_html=True)
 
 # Loop through projects and display buttons
