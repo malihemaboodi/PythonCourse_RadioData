@@ -1,107 +1,71 @@
 import streamlit as st
 
-# Set the page title and icon
-st.set_page_config(page_title="Funny Sport Name Generator", page_icon="⚽")
+# Dictionary of predefined questions and answers
+qa_dict = {
+    "What are the phases of the analysis of accounting transactions?":
+        "The phases of the analysis of accounting transactions are:\n"
+        "a) Setting up possible filters for the transactions.\n"
+        "b) Defining the types of analysis with corresponding levels of grouping.\n"
+        "c) Querying and printing the analysis of the transactions.",
 
-# Custom CSS for styling
+    "What does the function allow to do?":
+        "The function allows you to set different types of analysis by specifying how many and which fields from the accounting "
+        "transactions database will act as grouping keys.",
+
+    "How can the filters be defined?":
+        "The filters on the accounting transactions can be defined through the standard user filter creation functionality. "
+        "You can select generic filters or those defined by the current user.",
+
+    "What does the second page allow to do?":
+        "The second page allows you to specify the key fields for grouping the transactions, as well as the options for "
+        "decoding and excluding null values.",
+
+    "What is required on the first page of the analysis function?":
+        "On the first page of the analysis function, the following are required: the code (5 alphanumeric characters), "
+        "the analysis title, the filter on the transactions, the number of groupings, and the currency type."
+}
+
+
+# Function to handle user question and display the answer
+def handle_question(question):
+    # Check if the question is in the dictionary
+    return qa_dict.get(question, "Sorry, I don't have an answer for that.")
+
+
+# Streamlit UI
+st.set_page_config(page_title="AI Assistant for Accounting", page_icon=":robot_face:", layout="wide")
+
+# Title and Subheader
+st.markdown("<h1 style='text-align: center;'>AI Assistant for Accounting Transactions</h1>", unsafe_allow_html=True)
+st.subheader("Ask me anything related to accounting analysis!")
+
+# Input box for user question with some custom styling
+user_question = st.text_input("Type your question here:", placeholder="E.g., What are the phases of analysis?")
+
+# Styling the container
 st.markdown(
-    f"""
+    """
     <style>
-        body {{
-            background-color: #f7f7f7;
-            font-family: 'Arial', sans-serif;
-        }}
-        h1 {{
-            text-align: center;
-            color: #4CAF50;
-            font-size: 3em;
-            margin-top: 50px;
-            font-weight: bold;
-        }}
-        p {{
-            text-align: center;
-            color: #555;
-            font-size: 1.2em;
-        }}
-        .input-container {{
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-top: 30px;
-        }}
-        .input-field {{
-            width: 80%;
-            padding: 15px;
-            margin-bottom: 20px;
-            font-size: 1.1em;
-            border-radius: 10px;
-            border: 2px solid #4CAF50;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            outline: none;
-            transition: all 0.3s ease;
-        }}
-        .input-field:focus {{
-            border-color: #FFA500;
-            box-shadow: 0 4px 8px rgba(255, 165, 0, 0.5);
-        }}
-        .generate-button {{
-            background-color: #FF6347;
-            color: white;
-            font-size: 1.2em;
-            padding: 15px 30px;
-            border: none;
-            border-radius: 25px;
-            cursor: pointer;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-            transition: background-color 0.3s ease, transform 0.3s ease;
-        }}
-        .generate-button:hover {{
-            background-color: #FF4500;
-            transform: scale(1.05);
-        }}
-        .generate-button:active {{
-            background-color: #E63A2B;
-        }}
-        .result {{
-            text-align: center;
-            color: #FF6347;
-            font-size: 2em;
-            margin-top: 30px;
-            font-weight: bold;
-        }}
+    .css-1d391kg {
+        padding: 20px;
+        background-color: #f0f4f7;
+        border-radius: 10px;
+        font-size: 18px;
+    }
+    .css-1b6bcm5 {
+        font-size: 20px;
+        font-weight: bold;
+    }
     </style>
     """,
     unsafe_allow_html=True
 )
 
-# Add a header and description
-st.markdown("""
-    <h1>Funny Sport Name Generator</h1>
-    <p>Create your own fun sport name with just a few inputs!</p>
-""", unsafe_allow_html=True)
+# Display answer based on question
+if user_question:
+    answer = handle_question(user_question)
+    # Display question and answer in a box with some padding and color
+    st.markdown(
+        f"<div class='css-1d391kg'><p><span class='css-1b6bcm5'>Question:</span> {user_question}</p><p><span class='css-1b6bcm5'>Answer:</span> {answer}</p></div>",
+        unsafe_allow_html=True)
 
-# Ask the user for a sport-related item or activity
-st.markdown("<div class='input-container'>", unsafe_allow_html=True)
-sport_gear = st.text_input("What is the name of a sport-related item or activity?", placeholder="e.g., Ball, Running, Swimming", key="sport_gear", label_visibility="collapsed", max_chars=30)
-
-# Ask the user for a funny thing (animal, object, or adjective)
-funny_thing = st.text_input("What is the name of a funny animal, object, or adjective?", placeholder="e.g., Panda, Ninja, Banana", key="funny_thing", label_visibility="collapsed", max_chars=30)
-
-st.markdown("</div>", unsafe_allow_html=True)
-
-# Check if the inputs are filled and display the result
-if sport_gear and funny_thing:
-    st.markdown(f"""
-        <div class='result'>
-            Your new sport name could be:<br><span style="font-size: 2.5em; color: #FFA500;">{sport_gear} {funny_thing}!</span>
-        </div>
-    """, unsafe_allow_html=True)
-else:
-    st.markdown("""
-        <div class='result'>
-            Please enter both the sport-related item and the funny thing to generate your name.
-        </div>
-    """, unsafe_allow_html=True)
-
-# Optional: Add a button to generate another name (if desired)
-# st.button("Generate Another Name", key="generate_button", on_click=generate_name_function)
